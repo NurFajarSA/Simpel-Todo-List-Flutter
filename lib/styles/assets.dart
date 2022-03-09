@@ -1,0 +1,1 @@
+const appBar = "assets/images/app_bar.png";
