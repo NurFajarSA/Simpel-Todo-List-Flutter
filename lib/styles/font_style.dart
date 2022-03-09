@@ -28,6 +28,12 @@ TextStyle heading3 = GoogleFonts.poppins(
   color: secondary1,
 );
 
+TextStyle subHeading = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: regular,
+  color: secondary1,
+);
+
 TextStyle bodyDark = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: semiBold,
