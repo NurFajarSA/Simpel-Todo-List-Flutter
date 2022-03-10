@@ -14,3 +14,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+TODO:
+paskirim data ke hive, tanggal udah di ubah jadi string, time juga udah jadi string, iscomplete false
+Benerin home kalo bisa pindah ke file baru aja, ama janlum home nya pake future... liat tutor hive

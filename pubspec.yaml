@@ -37,6 +37,10 @@ dependencies:
   google_fonts: ^2.3.1
   get: ^4.6.1
   url_launcher: ^6.0.20
+  hive: ^2.0.6
+  hive_flutter: ^1.1.0
+  hive_generator: ^1.1.2
+  path_provider: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +52,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

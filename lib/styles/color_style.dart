@@ -12,5 +12,7 @@ Color warning = const Color(0xFFF7B500);
 Color danger = const Color(0xFFEB5757);
 Color ternary1 = const Color(0xFFFFF8E5);
 Color ternary2 = const Color(0xFFDBDBDB);
+Color ternary3 = const Color(0xFFF2F2F2);
 Color fieldWarn = const Color(0xFFF7B500).withOpacity(0.15);
 Color fieldDanger = const Color(0xFFEB5757).withOpacity(0.15);
+Color field = const Color(0xFF5038BC).withOpacity(0.15);
