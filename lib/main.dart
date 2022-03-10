@@ -7,21 +7,28 @@ import 'package:simple_todo_app/model/task.dart';
 import 'package:simple_todo_app/styles/assets.dart';
 import 'package:simple_todo_app/styles/color_style.dart';
 import 'package:simple_todo_app/styles/font_style.dart';
-import 'package:path_provider/path_provider.dart' as pathProvider;
+import 'package:path_provider/path_provider.dart' as path;
 import 'package:hive/hive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var appDocumentDirectory =
-      await pathProvider.getApplicationDocumentsDirectory();
+      await path.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   Hive.registerAdapter(TaskAdapter());
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+  
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool? value = false;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -90,7 +97,64 @@ class MyApp extends StatelessWidget {
                       ),
                       Container(
                         alignment: Alignment.center,
-                        child: showEmptyState(),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 78,
+                              width: double.infinity,
+                              margin: const EdgeInsets.only(top: 8, bottom: 8),
+                              child: Card(
+                                  color: primary2,
+                                  elevation: 2,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Checkbox(
+                                              value: value,
+                                              activeColor: primary3,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  this.value = value;
+                                                });
+                                              }),
+                                          const SizedBox(
+                                            width: 16,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                "Task Name",
+                                                style: bodyDark,
+                                              ),
+                                              Text(
+                                                "March 10, 2022 | 11:00 - 12:00",
+                                                style: text,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(Icons.delete),
+                                            color: danger,
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  )),
+                            )
+                          ],
+                        ), //showEmptyState()
                       )
                     ],
                   ),
