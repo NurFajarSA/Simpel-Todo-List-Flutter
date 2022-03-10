@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:simple_todo_app/main.dart';
 import 'package:simple_todo_app/styles/color_style.dart';
 import 'package:simple_todo_app/styles/font_style.dart';
 import 'package:simple_todo_app/model/task.dart';
@@ -16,7 +15,7 @@ class CreateTask extends StatefulWidget {
 }
 
 class _CreateTaskState extends State<CreateTask> {
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   String? name = "";
   String? day = "";
@@ -35,17 +34,10 @@ class _CreateTaskState extends State<CreateTask> {
       String endTime = convertTime(hourEnd, minEnd);
       Task tempTask = Task(name, date, startTime, endTime, isComplete);
       addTask(tempTask);
+      Get.back();
     }
   }
 
-  TextEditingController controllerName = TextEditingController();
-  TextEditingController controllerDay = TextEditingController();
-  TextEditingController controllerMonth = TextEditingController();
-  TextEditingController controllerYear = TextEditingController();
-  TextEditingController controllerHourStart = TextEditingController();
-  TextEditingController controllerMinuteStart = TextEditingController();
-  TextEditingController controllerHourEnd = TextEditingController();
-  TextEditingController controllerMinuteEnd = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +62,7 @@ class _CreateTaskState extends State<CreateTask> {
       body: Container(
         margin: const EdgeInsets.all(20),
         child: Form(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           key: formKey,
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +76,6 @@ class _CreateTaskState extends State<CreateTask> {
                   height: 12,
                 ),
                 TextFormField(
-                  controller: controllerName,
                   style: text,
                   decoration: InputDecoration(
                       contentPadding: const EdgeInsets.all(16),
@@ -115,7 +107,6 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 54,
                         margin: const EdgeInsets.only(right: 6),
                         child: TextFormField(
-                          controller: controllerDay,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -140,7 +131,6 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 54,
                         margin: const EdgeInsets.only(left: 6, right: 6),
                         child: TextFormField(
-                          controller: controllerMonth,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -165,7 +155,6 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 72,
                         margin: const EdgeInsets.only(left: 6),
                         child: TextFormField(
-                          controller: controllerYear,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -203,7 +192,6 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 50,
                         margin: const EdgeInsets.only(right: 6),
                         child: TextFormField(
-                            controller: controllerHourStart,
                             style: text,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.datetime,
@@ -224,25 +212,24 @@ class _CreateTaskState extends State<CreateTask> {
                       style: text,
                     ), // :
                     Container(
-                        width: 50,
-                        margin: const EdgeInsets.only(right: 20, left: 6),
-                        child: TextFormField(
-                            controller: controllerMinuteStart,
-                            style: text,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.datetime,
-                            maxLength: 2,
-                            decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.all(16),
-                                hintText: "00",
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8)),
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    borderSide:
-                                        BorderSide(color: primary3, width: 2))),
-                            validator: isValidMin)), // menit
+                      width: 50,
+                      margin: const EdgeInsets.only(right: 20, left: 6),
+                      child: TextFormField(
+                          style: text,
+                          textAlign: TextAlign.center,
+                          keyboardType: TextInputType.datetime,
+                          maxLength: 2,
+                          decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.all(16),
+                              hintText: "00",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              counterText: '',
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide:
+                                      BorderSide(color: primary3, width: 2))),
+                          validator: isValidMin)), // menit
                     SizedBox(
                       width: 18,
                       child: Divider(
@@ -254,7 +241,6 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 50,
                         margin: const EdgeInsets.only(right: 6, left: 20),
                         child: TextFormField(
-                            controller: controllerHourEnd,
                             style: text,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.datetime,
@@ -275,42 +261,25 @@ class _CreateTaskState extends State<CreateTask> {
                       style: text,
                     ), // :
                     Container(
-                        width: 50,
-                        margin: const EdgeInsets.only(left: 6),
-                        child: TextFormField(
-                            controller: controllerMinuteEnd,
-                            style: text,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.datetime,
-                            maxLength: 2,
-                            decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.all(16),
-                                hintText: "00",
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8)),
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    borderSide:
-                                        BorderSide(color: primary3, width: 2))),
-                            validator: isValidMin)), // menit
-                  ],
-                ),
-                Container(
-                  margin: const EdgeInsets.all(24),
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      Text(
-                        "Catatan:",
-                        style: text,
-                      ),
-                      Text(
-                        "Belum menerapkan validasi input",
-                        style: text,
-                      ),
-                    ],
-                  ),
+                      width: 50,
+                      margin: const EdgeInsets.only(left: 6),
+                      child: TextFormField(
+                          style: text,
+                          textAlign: TextAlign.center,
+                          keyboardType: TextInputType.datetime,
+                          maxLength: 2,
+                          decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.all(16),
+                              hintText: "00",
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              counterText: '',
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide:
+                                      BorderSide(color: primary3, width: 2))),
+                          validator: isValidMin)), // menit
+                ],
                 ),
               ]),
         ),
@@ -326,10 +295,7 @@ class _CreateTaskState extends State<CreateTask> {
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)))),
-              onPressed: () {
-                validate();
-                Get.back();
-              },
+              onPressed: validate,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
