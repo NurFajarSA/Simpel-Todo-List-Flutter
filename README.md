@@ -16,15 +16,15 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-Simple Todo
+# Simple Todo
 Aplikasi untuk membuat todo list dengan simple. Aplikasi ini dibuat untuk memenuhi tugas rekrutmen @ristek.cs.ui 
 
-Pengerjaan
-1 hari design ui ux
-4hari code implement ui ux dan logicnya
-1 hari rapiin code sama nambahin comment
+Pengerjaan</br>
+1 hari design ui ux</br>
+4hari code implement ui ux dan logicnya</br>
+1 hari rapiin code sama nambahin comment</br>
 
-Apa yang bisa ditingkatkan? (Males implemet lagi wkwk udah banyak tugas kuli)
+Apa yang bisa ditingkatkan? (udah banyak tugas kuli)
 1. Splash screen: kecepetan wkwk, kalo pake page baru biar bisa diatur speednya tapi malah delay banget, sama blank item dulu.
 2. Refresh checkbox: saat checklist todolist, init state dipanggil jadi reload databasenya. Ini ganggu si
 3. Create taks: ini bisa pake date picker sama time picker biar garibet validasi inputnya.
