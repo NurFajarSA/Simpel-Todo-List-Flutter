@@ -35,5 +35,5 @@ String convertDate(day, month, year) {
 }
 
 String convertTime(hour, minute) {
-  return "$hour : $minute";
+  return "$hour:$minute";
 }

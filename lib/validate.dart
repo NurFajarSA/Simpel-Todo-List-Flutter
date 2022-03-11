@@ -31,7 +31,7 @@ String? isValidYear(value) {
 }
 
 String? isValidHour(value) {
-  if (value.isEmpty || int.parse(value) > 24 ||value.length != 2) {
+  if (value.isEmpty || int.parse(value) >= 24 ||value.length != 2) {
     return "";
   } else {
     return null;
@@ -39,7 +39,7 @@ String? isValidHour(value) {
 }
 
 String? isValidMin(value) {
-  if (value.isEmpty || int.parse(value) > 59 || value.length != 2) {
+  if (value.isEmpty || int.parse(value) >= 60 || value.length != 2) {
     return "";
   } else {
     return null;

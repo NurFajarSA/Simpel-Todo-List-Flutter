@@ -17,27 +17,35 @@ class CreateTask extends StatefulWidget {
 class _CreateTaskState extends State<CreateTask> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String? name = "";
-  String? day = "";
-  String? month = "";
-  String? year = "";
-  String? hourStart = "";
-  String? minStart = "";
-  String? hourEnd = "";
-  String? minEnd = "";
+  TextEditingController nameController = TextEditingController();
+  TextEditingController dayController = TextEditingController();
+  TextEditingController monthController = TextEditingController();
+  TextEditingController yearController = TextEditingController();
+  TextEditingController hourStartController = TextEditingController();
+  TextEditingController minStartController = TextEditingController();
+  TextEditingController hourEndController = TextEditingController();
+  TextEditingController minEndController = TextEditingController();
+
+  // String? name = "";
+  // String? day = "";
+  // String? month = "";
+  // String? year = "";
+  // String? hourStart = "";
+  // String? minStart = "";
+  // String? hourEnd = "";
+  // String? minEnd = "";
   bool isComplete = false;
 
   void validate() {
     if (formKey.currentState!.validate()) {
-      String date = convertDate(day, month, year);
-      String startTime = convertTime(hourStart, minStart);
-      String endTime = convertTime(hourEnd, minEnd);
-      Task tempTask = Task(name, date, startTime, endTime, isComplete);
+      String date = convertDate(dayController.text, monthController.text, yearController.text);
+      String startTime = convertTime(hourStartController.text, minStartController.text);
+      String endTime = convertTime(hourEndController.text, minEndController.text);
+      Task tempTask = Task(nameController.text, date, startTime, endTime, isComplete);
       addTask(tempTask);
-      Get.back();
+      Get.back(canPop: false);
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +84,7 @@ class _CreateTaskState extends State<CreateTask> {
                   height: 12,
                 ),
                 TextFormField(
+                  controller: nameController,
                   style: text,
                   decoration: InputDecoration(
                       contentPadding: const EdgeInsets.all(16),
@@ -86,7 +95,7 @@ class _CreateTaskState extends State<CreateTask> {
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide(color: primary3, width: 2))),
                   validator: isEmpty,
-                  onSaved: (value) => setState(() => name = value),
+                  // onSaved: (value) => setState(() => name = value),
                 ), //nama
 
                 const SizedBox(
@@ -107,6 +116,7 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 54,
                         margin: const EdgeInsets.only(right: 6),
                         child: TextFormField(
+                          controller: dayController,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -131,6 +141,7 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 54,
                         margin: const EdgeInsets.only(left: 6, right: 6),
                         child: TextFormField(
+                          controller: monthController,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -155,6 +166,7 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 72,
                         margin: const EdgeInsets.only(left: 6),
                         child: TextFormField(
+                          controller: yearController,
                           style: text,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.datetime,
@@ -192,6 +204,7 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 50,
                         margin: const EdgeInsets.only(right: 6),
                         child: TextFormField(
+                          controller: hourStartController,
                             style: text,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.datetime,
@@ -212,24 +225,25 @@ class _CreateTaskState extends State<CreateTask> {
                       style: text,
                     ), // :
                     Container(
-                      width: 50,
-                      margin: const EdgeInsets.only(right: 20, left: 6),
-                      child: TextFormField(
-                          style: text,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.datetime,
-                          maxLength: 2,
-                          decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.all(16),
-                              hintText: "00",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              counterText: '',
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide:
-                                      BorderSide(color: primary3, width: 2))),
-                          validator: isValidMin)), // menit
+                        width: 50,
+                        margin: const EdgeInsets.only(right: 20, left: 6),
+                        child: TextFormField(
+                          controller: minStartController,
+                            style: text,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.datetime,
+                            maxLength: 2,
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.all(16),
+                                hintText: "00",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                counterText: '',
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide:
+                                        BorderSide(color: primary3, width: 2))),
+                            validator: isValidMin)), // menit
                     SizedBox(
                       width: 18,
                       child: Divider(
@@ -241,6 +255,7 @@ class _CreateTaskState extends State<CreateTask> {
                         width: 50,
                         margin: const EdgeInsets.only(right: 6, left: 20),
                         child: TextFormField(
+                          controller: hourEndController,
                             style: text,
                             textAlign: TextAlign.center,
                             keyboardType: TextInputType.datetime,
@@ -261,25 +276,26 @@ class _CreateTaskState extends State<CreateTask> {
                       style: text,
                     ), // :
                     Container(
-                      width: 50,
-                      margin: const EdgeInsets.only(left: 6),
-                      child: TextFormField(
-                          style: text,
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.datetime,
-                          maxLength: 2,
-                          decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.all(16),
-                              hintText: "00",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              counterText: '',
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                  borderSide:
-                                      BorderSide(color: primary3, width: 2))),
-                          validator: isValidMin)), // menit
-                ],
+                        width: 50,
+                        margin: const EdgeInsets.only(left: 6),
+                        child: TextFormField(
+                          controller: minEndController,
+                            style: text,
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.datetime,
+                            maxLength: 2,
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.all(16),
+                                hintText: "00",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                counterText: '',
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide:
+                                        BorderSide(color: primary3, width: 2))),
+                            validator: isValidMin)), // menit
+                  ],
                 ),
               ]),
         ),

@@ -31,6 +31,12 @@ TextStyle bodyDark = GoogleFonts.poppins(
   color: secondary1,
 );
 
+TextStyle bodyState = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: semiBold,
+  color: primary3,
+);
+
 TextStyle bodyLight = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: semiBold,

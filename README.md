@@ -17,5 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 TODO:
-paskirim data ke hive, tanggal udah di ubah jadi string, time juga udah jadi string, iscomplete false
 Benerin home kalo bisa pindah ke file baru aja, ama janlum home nya pake future... liat tutor hive
+
+main jadi stateless, bikin file buat statefull
