@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_todo_app/styles/color_style.dart';
 
 FontWeight regular = FontWeight.w400;
-FontWeight medium = FontWeight.w500;
 FontWeight semiBold = FontWeight.w600;
 FontWeight bold = FontWeight.w700;
 
@@ -45,18 +44,6 @@ TextStyle bodyLight = GoogleFonts.poppins(
 
 TextStyle text = GoogleFonts.poppins(
   fontSize: 14,
-  fontWeight: regular,
-  color: secondary1,
-);
-
-TextStyle boldSmallText = GoogleFonts.poppins(
-  fontSize: 12,
-  fontWeight: semiBold,
-  color: secondary1,
-);
-
-TextStyle smallText = GoogleFonts.poppins(
-  fontSize: 12,
   fontWeight: regular,
   color: secondary1,
 );

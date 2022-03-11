@@ -16,10 +16,7 @@ Widget showEmptyState() => Container(
           const SizedBox(
             height: 16,
           ),
-          Text(
-            "There are no tasks to complete",
-            style: bodyState
-          ),
+          Text("There are no tasks to complete", style: bodyState),
           const SizedBox(
             height: 4,
           ),

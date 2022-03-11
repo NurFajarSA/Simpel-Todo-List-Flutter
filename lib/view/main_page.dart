@@ -9,7 +9,7 @@ import 'package:simple_todo_app/view/fab_task.dart';
 import 'package:simple_todo_app/view/card_view.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({ Key? key }) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,27 +47,25 @@ class MainPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            margin: const EdgeInsets.only(right: 20, left:20, bottom: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  "Hi, Nur Fajar Sayyidul Ayyam!",
-                  style: heading2,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  "Tasks List",
-                  style: heading3,
-                ),
-              ]
-            )
-          ),
+              margin: const EdgeInsets.only(right: 20, left: 20, bottom: 8),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      "Hi, Nur Fajar Sayyidul Ayyam!",
+                      style: heading2,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      "Tasks List",
+                      style: heading3,
+                    ),
+                  ])),
           const CardView(),
           const SizedBox(
             height: 78,

@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SimpleTodo',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
-      home:const MainPage());
+        debugShowCheckedModeBanner: false,
+        title: 'SimpleTodo',
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        home: const MainPage());
   }
 }

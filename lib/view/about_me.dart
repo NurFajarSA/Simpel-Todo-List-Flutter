@@ -129,21 +129,21 @@ class AboutMe extends StatelessWidget {
           height: 44,
           margin: const EdgeInsets.only(left: 20, right: 20),
           child: ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(primary3),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0)))),
-            onPressed: _launchURL,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "More About Me",
-                  style: bodyLight,
-                )
-              ],
-            )),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(primary3),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0)))),
+              onPressed: _launchURL,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "More About Me",
+                    style: bodyLight,
+                  )
+                ],
+              )),
         ),
         const SizedBox(
           height: 52,
