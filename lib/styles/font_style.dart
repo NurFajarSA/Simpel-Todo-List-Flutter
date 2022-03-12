@@ -42,6 +42,12 @@ TextStyle bodyLight = GoogleFonts.poppins(
   color: primary2,
 );
 
+TextStyle bodyDanger = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: semiBold,
+  color: danger,
+);
+
 TextStyle text = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: regular,

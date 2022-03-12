@@ -96,7 +96,9 @@ class _CardViewState extends State<CardView> {
                                               children: [
                                                 IconButton(
                                                   onPressed: () {
-                                                    tasks.deleteAt(index);
+                                                    showCustomDialog(
+                                                        context, tasks, index);
+                                                    // tasks.deleteAt(index);
                                                   },
                                                   icon:
                                                       const Icon(Icons.delete),
@@ -128,4 +130,65 @@ class _CardViewState extends State<CardView> {
       },
     );
   }
+
+  void showCustomDialog(BuildContext context, tasks, index) => showDialog(
+      context: context,
+      builder: (_) => Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.delete,
+                    color: danger,
+                    size: 42,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Delete task?",
+                    style: heading2,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Are you sure want to delete this task?",
+                    style: text,
+                  ),
+                  Text(
+                    "You can’t undo this action.",
+                    style: text,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: SizedBox(
+                            height: 32,
+                            width: 94,
+                            child:
+                                Center(child: Text("Close", style: bodyState))),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          tasks.deleteAt(index);
+                          Navigator.of(context).pop();
+                        },
+                        child: SizedBox(
+                            height: 32,
+                            width: 94,
+                            child: Center(
+                                child: Text("Delete", style: bodyDanger))),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ));
 }
