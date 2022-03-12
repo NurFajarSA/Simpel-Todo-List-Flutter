@@ -19,6 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 # Simple Todo
 Aplikasi untuk membuat todo list dengan simple. Aplikasi ini dibuat untuk memenuhi tugas rekrutmen @ristek.cs.ui 
 
+Note Pribadi
 Pengerjaan</br>
 1 hari design ui ux</br>
 4hari code implement ui ux dan logicnya</br>
